@@ -2,23 +2,23 @@
 
 namespace E_Commerce_Api.Domain.Entities
 {
-    public class Detail: EntityBase
+    public class Detail : EntityBase
     {
         public Detail()
         {
 
         }
-        public Detail(string description, string title, int categoryId, Category category)
+        public Detail(string title, string description, int categoryId)
         {
-            Description = description;
             Title = title;
+            Description = description;
             CategoryId = categoryId;
-            Category = category;
         }
-        public required string Title { get; set; }
-        public required string Description { get; set; }
-        public required int CategoryId { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public int CategoryId { get; set; }
         public Category Category { get; set; }
     }
+
 
 }
