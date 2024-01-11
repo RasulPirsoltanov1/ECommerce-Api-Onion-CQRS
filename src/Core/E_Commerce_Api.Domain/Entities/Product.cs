@@ -9,12 +9,12 @@ namespace E_Commerce_Api.Domain.Entities
 
         }
        
-        public required string Title { get; set; }
+        public string Title { get; set; }
         public string? ImagePath { get; set; }
-        public required string Description { get; set; }
-        public required decimal Price { get; set; }
-        public required decimal Discount { get; set; }
-        public required int BrandId { get; set; }
+        public string Description { get; set; }
+        public decimal Price { get; set; }
+        public decimal Discount { get; set; }
+        public int BrandId { get; set; }
         public Brand Brand { get; set; }
         public ICollection<Category> Categories{ get; set; }
     }

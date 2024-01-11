@@ -1,6 +1,8 @@
 ﻿using E_Commerce_Api.Application.Interfaces.Repositories;
+using E_Commerce_Api.Application.Interfaces.UnitOfWorks;
 using E_Commerce_Api.Persistance.Context;
 using E_Commerce_Api.Persistance.Repositories;
+using E_Commerce_Api.Persistance.UnitOfWorks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -14,7 +16,7 @@ namespace E_Commerce_Api.Persistance
 {
     public static class Registration
     {
-        public static void AddPersistence(this IServiceCollection services,IConfiguration configuration)
+        public static void AddPersistence(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<AppDbContext>(opt =>
             {
@@ -22,6 +24,7 @@ namespace E_Commerce_Api.Persistance
             });
             services.AddScoped(typeof(IReadRepository<>), typeof(ReadRepository<>));
             services.AddScoped(typeof(IWriteRepository<>), typeof(WriteRepository<>));
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
     }
 }
