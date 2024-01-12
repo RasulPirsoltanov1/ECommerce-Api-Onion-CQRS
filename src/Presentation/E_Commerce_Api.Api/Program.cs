@@ -1,3 +1,5 @@
+using E_Commerce_Api.Application;
+using E_Commerce_Api.Application.Features.Products.Command.GetAllProducts;
 using E_Commerce_Api.Persistance;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,9 +12,12 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var env = builder.Environment;
-builder.Configuration.SetBasePath(env.ContentRootPath).AddJsonFile("appsettings.json", optional: false).AddJsonFile($"appsettings.{env.EnvironmentName}.json",optional:true);
+builder.Configuration.SetBasePath(env.ContentRootPath).AddJsonFile("appsettings.json", optional: false).AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
+
 
 builder.Services.AddPersistence(builder.Configuration);
+builder.Services.AddApplication();
+
 
 var app = builder.Build();
 

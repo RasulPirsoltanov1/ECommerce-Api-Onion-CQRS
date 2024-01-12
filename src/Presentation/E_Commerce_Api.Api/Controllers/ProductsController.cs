@@ -1,30 +1,27 @@
 ﻿using E_Commerce_Api.Application.Features.Products.Command.GetAllProducts;
 using E_Commerce_Api.Application.Interfaces.UnitOfWorks;
-using E_Commerce_Api.Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace E_Commerce_Api.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class ProductsController : ControllerBase
     {
-        IUnitOfWork _unitOfWork;
         IMediator _mediator;
 
-        public ValuesController(IUnitOfWork unitOfWork, IMediator mediator)
+        public ProductsController(IMediator mediator)
         {
-            this._unitOfWork = unitOfWork;
             this._mediator = mediator;
         }
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> GetAllProducts()
         {
             var datas = await _mediator.Send(new GetAllProductsQueryRequest());
             return Ok(datas);
-
         }
     }
 }
