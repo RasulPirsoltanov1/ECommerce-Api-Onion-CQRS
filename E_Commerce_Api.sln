@@ -11,15 +11,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{4F1621AC-A59D-45F1-89FB-A750B7C63C93}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E_Commerce_Api.Domain", "src\Core\E_Commerce_Api.Domain\E_Commerce_Api.Domain.csproj", "{7CFB498C-DC56-401C-9B69-E72EAF4338F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E_Commerce_Api.Domain", "src\Core\E_Commerce_Api.Domain\E_Commerce_Api.Domain.csproj", "{7CFB498C-DC56-401C-9B69-E72EAF4338F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E_Commerce_Api.Application", "src\Core\E_Commerce_Api.Application\E_Commerce_Api.Application.csproj", "{F12E724C-3E7D-49B0-A988-A7BB82605D46}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E_Commerce_Api.Application", "src\Core\E_Commerce_Api.Application\E_Commerce_Api.Application.csproj", "{F12E724C-3E7D-49B0-A988-A7BB82605D46}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E_Commerce_Api.Infrastructure", "src\Infrastructure\E_Commerce_Api.Infrastructure\E_Commerce_Api.Infrastructure.csproj", "{176F88C2-18DC-495F-B6A8-6D5E05EC46DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E_Commerce_Api.Infrastructure", "src\Infrastructure\E_Commerce_Api.Infrastructure\E_Commerce_Api.Infrastructure.csproj", "{176F88C2-18DC-495F-B6A8-6D5E05EC46DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E_Commerce_Api.Persistance", "src\Infrastructure\E_Commerce_Api.Persistance\E_Commerce_Api.Persistance.csproj", "{56DF885A-E79B-4387-ABBD-474EB4E9A0E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E_Commerce_Api.Persistance", "src\Infrastructure\E_Commerce_Api.Persistance\E_Commerce_Api.Persistance.csproj", "{56DF885A-E79B-4387-ABBD-474EB4E9A0E5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E_Commerce_Api.Api", "src\Presentation\E_Commerce_Api.Api\E_Commerce_Api.Api.csproj", "{997DA66C-E62A-4661-970B-D29E3441A74E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E_Commerce_Api.Api", "src\Presentation\E_Commerce_Api.Api\E_Commerce_Api.Api.csproj", "{997DA66C-E62A-4661-970B-D29E3441A74E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
