@@ -1,28 +1,31 @@
-﻿using E_Commerce_Api.Application.Interfaces.UnitOfWorks;
+﻿using AutoMapper;
+using E_Commerce_Api.Application.Interfaces.UnitOfWorks;
 using E_Commerce_Api.Domain.Entities;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace E_Commerce_Api.Application.Features.Products.Command.GetAllProducts
 {
     public class GetAllProductsQueryHandler : IRequestHandler<GetAllProductsQueryRequest, IList<GetAllProductsQueryResponse>>
     {
         IUnitOfWork _unitOfWork;
+        IMapper _mapper;
 
-        public GetAllProductsQueryHandler(IUnitOfWork unitOfWork)
+        public GetAllProductsQueryHandler(IUnitOfWork unitOfWork, IMapper mapper)
         {
             this._unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
 
         async Task<IList<GetAllProductsQueryResponse>> IRequestHandler<GetAllProductsQueryRequest, IList<GetAllProductsQueryResponse>>.Handle(GetAllProductsQueryRequest request, CancellationToken cancellationToken)
         {
-            var products = await _unitOfWork.GetReadRepository<Product>().GetAllAsync();
-            return  products.Select(x=>new GetAllProductsQueryResponse
+            var products = await _unitOfWork.GetReadRepository<Product>().GetAllAsync(include: x => x.Include(y => y.Brand));
+            var response = _mapper.Map<IList<Product>,IList<GetAllProductsQueryResponse>>(products);
+            foreach (var res in response)
             {
-                Description = x.Description,
-                Discount = x.Discount,
-                Price = x.Price,
-                Title = x.Title
-            }).ToList();
+                res.Price -= (res.Price * res.Discount) / 100;
+            }
+            return response;
         }
     }
 }
