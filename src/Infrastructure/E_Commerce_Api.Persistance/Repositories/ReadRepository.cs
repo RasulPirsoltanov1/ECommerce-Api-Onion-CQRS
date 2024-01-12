@@ -25,15 +25,29 @@ namespace E_Commerce_Api.Persistance.Repositories
 
 
 
-        public async Task<IList<T>> GetAllAsync(Expression<Func<T, bool>>? expression = null, Func<IQueryable<T>, IIncludableQueryable<T, object>>? include = null, Func<IQueryable<T>, IOrderedQueryable<T>>? orderBy = null, bool enableTracking = false)
+        public async Task<IList<T>> GetAllAsync(
+    Expression<Func<T, bool>>? expression = null,
+    Func<IQueryable<T>, IIncludableQueryable<T, object>>? include = null,
+    Func<IQueryable<T>, IOrderedQueryable<T>>? orderBy = null,
+    bool enableTracking = false)
         {
             IQueryable<T> queryable = Table;
-            if (!enableTracking) queryable = queryable.AsNoTracking();
-            if (include is not null) include(queryable);
-            if (expression is not null) queryable.Where(expression);
-            if (orderBy is not null) return await orderBy(queryable).ToListAsync();
+
+            if (!enableTracking)
+                queryable = queryable.AsNoTracking();
+
+            if (include is not null)
+                queryable = include(queryable);
+
+            if (expression is not null)
+                queryable = queryable.Where(expression);
+
+            if (orderBy is not null)
+                return await orderBy(queryable).ToListAsync();
+
             return await queryable.ToListAsync();
         }
+
 
         public async Task<IList<T>> GetAllAsyncByPaging(Expression<Func<T, bool>>? expression = null, Func<IQueryable<T>, IIncludableQueryable<T, object>>? include = null, Func<IQueryable<T>, IOrderedQueryable<T>>? orderBy = null, bool enableTracking = false, int currentPage = 1, int pageSize = 3)
         {
