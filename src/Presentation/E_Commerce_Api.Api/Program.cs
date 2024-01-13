@@ -1,5 +1,5 @@
 using E_Commerce_Api.Application;
-using E_Commerce_Api.Application.Features.Products.Command.GetAllProducts;
+using E_Commerce_Api.Application.Features.Products.Queries.GetAllProducts;
 using E_Commerce_Api.Persistance;
 
 var builder = WebApplication.CreateBuilder(args);

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using E_Commerce_Api.Application.DTO_s;
-using E_Commerce_Api.Application.Features.Products.Command.GetAllProducts;
+using E_Commerce_Api.Application.Features.Products.Queries.GetAllProducts;
 using E_Commerce_Api.Domain.Entities;
 using System;
 using System.Collections.Generic;

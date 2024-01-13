@@ -4,7 +4,7 @@ using E_Commerce_Api.Domain.Entities;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace E_Commerce_Api.Application.Features.Products.Command.GetAllProducts
+namespace E_Commerce_Api.Application.Features.Products.Queries.GetAllProducts
 {
     public class GetAllProductsQueryHandler : IRequestHandler<GetAllProductsQueryRequest, IList<GetAllProductsQueryResponse>>
     {
@@ -13,17 +13,17 @@ namespace E_Commerce_Api.Application.Features.Products.Command.GetAllProducts
 
         public GetAllProductsQueryHandler(IUnitOfWork unitOfWork, IMapper mapper)
         {
-            this._unitOfWork = unitOfWork;
+            _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
 
         async Task<IList<GetAllProductsQueryResponse>> IRequestHandler<GetAllProductsQueryRequest, IList<GetAllProductsQueryResponse>>.Handle(GetAllProductsQueryRequest request, CancellationToken cancellationToken)
         {
             var products = await _unitOfWork.GetReadRepository<Product>().GetAllAsync(include: x => x.Include(y => y.Brand));
-            var response = _mapper.Map<IList<Product>,IList<GetAllProductsQueryResponse>>(products);
+            var response = _mapper.Map<IList<Product>, IList<GetAllProductsQueryResponse>>(products);
             foreach (var res in response)
             {
-                res.Price -= (res.Price * res.Discount) / 100;
+                res.Price -= res.Price * res.Discount / 100;
             }
             return response;
         }
