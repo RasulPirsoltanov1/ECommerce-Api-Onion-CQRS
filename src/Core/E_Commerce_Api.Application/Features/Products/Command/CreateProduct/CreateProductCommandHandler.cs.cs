@@ -1,4 +1,5 @@
-﻿using E_Commerce_Api.Application.Interfaces.UnitOfWorks;
+﻿using E_Commerce_Api.Application.Features.Products.Rules;
+using E_Commerce_Api.Application.Interfaces.UnitOfWorks;
 using E_Commerce_Api.Domain.Entities;
 using MediatR;
 using System;
@@ -12,14 +13,20 @@ namespace E_Commerce_Api.Application.Features.Products.Command.CreateProduct
     public class CreateProductCommandHandler : IRequestHandler<CreateProductCommandRequest, CreateProductCommandResponse>
     {
         IUnitOfWork _unitOfWork;
+        ProductRules _productRules;
 
-        public CreateProductCommandHandler(IUnitOfWork unitOfWork)
+        public CreateProductCommandHandler(IUnitOfWork unitOfWork, ProductRules productRules)
         {
             _unitOfWork = unitOfWork;
+            _productRules = productRules;
         }
 
         public async Task<CreateProductCommandResponse> Handle(CreateProductCommandRequest request, CancellationToken cancellationToken)
         {
+
+            IList<Product> products = await _unitOfWork.GetReadRepository<Product>().GetAllAsync();
+            await _productRules.ProductTitleMustNotBeSame(request.Title, products);
+
             var product = new Product
             {
                 BrandId = request.BrandId,
