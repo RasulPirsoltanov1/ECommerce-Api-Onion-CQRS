@@ -1,4 +1,5 @@
 using E_Commerce_Api.Application;
+using E_Commerce_Api.Application.Exceptions;
 using E_Commerce_Api.Application.Features.Products.Queries.GetAllProducts;
 using E_Commerce_Api.Persistance;
 
@@ -28,10 +29,13 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.ConfigureExceptionMiddlewareHandling();
+
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
 app.MapControllers();
+
 
 app.Run();

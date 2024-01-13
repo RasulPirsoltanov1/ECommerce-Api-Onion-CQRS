@@ -41,6 +41,7 @@ namespace E_Commerce_Api.Api.Controllers
         [HttpDelete]
         public async Task<IActionResult> Delete(DeleteProductCommandRequest deleteProductCommandRequest)
         {
+            
             var result = await _mediator.Send(deleteProductCommandRequest);
             return Ok(result);
         }

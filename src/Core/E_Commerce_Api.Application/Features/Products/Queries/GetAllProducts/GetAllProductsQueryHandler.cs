@@ -3,6 +3,7 @@ using E_Commerce_Api.Application.Interfaces.UnitOfWorks;
 using E_Commerce_Api.Domain.Entities;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 
 namespace E_Commerce_Api.Application.Features.Products.Queries.GetAllProducts
 {
@@ -25,6 +26,7 @@ namespace E_Commerce_Api.Application.Features.Products.Queries.GetAllProducts
             {
                 res.Price -= res.Price * res.Discount / 100;
             }
+            throw new ValidationException("global error");
             return response;
         }
     }
