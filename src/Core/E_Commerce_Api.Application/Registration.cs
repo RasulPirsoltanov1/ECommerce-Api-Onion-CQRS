@@ -1,4 +1,5 @@
 ﻿using E_Commerce_Api.Application.AutoMapperConfigs;
+using E_Commerce_Api.Application.Exceptions;
 using E_Commerce_Api.Application.Features.Products.Queries.GetAllProducts;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -16,6 +17,7 @@ namespace E_Commerce_Api.Application
         {
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(GetAllProductsQueryHandler).Assembly));
             services.AddAutoMapper(typeof(AutoMapperConfig));
+            services.AddTransient<ExceptionMiddleware>();
             return services;
         }
     }
