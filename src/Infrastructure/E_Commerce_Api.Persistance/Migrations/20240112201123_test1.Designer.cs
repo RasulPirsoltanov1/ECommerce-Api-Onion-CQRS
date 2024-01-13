@@ -4,6 +4,7 @@ using E_Commerce_Api.Persistance.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace E_Commerce_Api.Persistance.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240112201123_test1")]
+    partial class test1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,6 +24,21 @@ namespace E_Commerce_Api.Persistance.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("CategoryProduct", b =>
+                {
+                    b.Property<int>("CategoriesId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductsId")
+                        .HasColumnType("int");
+
+                    b.HasKey("CategoriesId", "ProductsId");
+
+                    b.HasIndex("ProductsId");
+
+                    b.ToTable("CategoryProduct");
+                });
 
             modelBuilder.Entity("E_Commerce_Api.Domain.Entities.Brand", b =>
                 {
@@ -49,72 +67,72 @@ namespace E_Commerce_Api.Persistance.Migrations
                         new
                         {
                             Id = 1,
-                            CreateDate = new DateTime(2024, 1, 12, 20, 36, 48, 848, DateTimeKind.Utc).AddTicks(9139),
+                            CreateDate = new DateTime(2024, 1, 12, 20, 11, 23, 650, DateTimeKind.Utc).AddTicks(8956),
                             IsDeleted = false,
-                            Name = "Filmlər, bəzək & musiqi"
+                            Name = "Elektronika & Oyuncaqlar"
                         },
                         new
                         {
                             Id = 2,
-                            CreateDate = new DateTime(2024, 1, 12, 20, 36, 48, 848, DateTimeKind.Utc).AddTicks(9209),
+                            CreateDate = new DateTime(2024, 1, 12, 20, 11, 23, 650, DateTimeKind.Utc).AddTicks(9052),
+                            IsDeleted = false,
+                            Name = "Ayyaqqabı, Avtomobil & Elektronika"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreateDate = new DateTime(2024, 1, 12, 20, 11, 23, 650, DateTimeKind.Utc).AddTicks(9064),
+                            IsDeleted = false,
+                            Name = "musiqi"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CreateDate = new DateTime(2024, 1, 12, 20, 11, 23, 650, DateTimeKind.Utc).AddTicks(9087),
+                            IsDeleted = false,
+                            Name = "Ayyaqqabı, Ayyaqqabı & oyunlar"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CreateDate = new DateTime(2024, 1, 12, 20, 11, 23, 650, DateTimeKind.Utc).AddTicks(9111),
+                            IsDeleted = false,
+                            Name = "Oyuncaqlar, садинструмент & turizm"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CreateDate = new DateTime(2024, 1, 12, 20, 11, 23, 650, DateTimeKind.Utc).AddTicks(9123),
                             IsDeleted = false,
                             Name = "Filmlər"
                         },
                         new
                         {
-                            Id = 3,
-                            CreateDate = new DateTime(2024, 1, 12, 20, 36, 48, 848, DateTimeKind.Utc).AddTicks(9289),
-                            IsDeleted = false,
-                            Name = "gözəllik, Kompyuterlər & Kompyuterlər"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            CreateDate = new DateTime(2024, 1, 12, 20, 36, 48, 848, DateTimeKind.Utc).AddTicks(9314),
-                            IsDeleted = false,
-                            Name = "Səhiyyə, Avtomobil & Filmlər"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            CreateDate = new DateTime(2024, 1, 12, 20, 36, 48, 848, DateTimeKind.Utc).AddTicks(9336),
-                            IsDeleted = false,
-                            Name = "Geyim, Kompyuterlər & gözəllik"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            CreateDate = new DateTime(2024, 1, 12, 20, 36, 48, 848, DateTimeKind.Utc).AddTicks(9359),
-                            IsDeleted = false,
-                            Name = "Oyuncaqlar & turizm"
-                        },
-                        new
-                        {
                             Id = 7,
-                            CreateDate = new DateTime(2024, 1, 12, 20, 36, 48, 848, DateTimeKind.Utc).AddTicks(9369),
+                            CreateDate = new DateTime(2024, 1, 12, 20, 11, 23, 650, DateTimeKind.Utc).AddTicks(9133),
                             IsDeleted = false,
-                            Name = "Oyuncaqlar"
+                            Name = "Ayyaqqabı"
                         },
                         new
                         {
                             Id = 8,
-                            CreateDate = new DateTime(2024, 1, 12, 20, 36, 48, 848, DateTimeKind.Utc).AddTicks(9391),
+                            CreateDate = new DateTime(2024, 1, 12, 20, 11, 23, 650, DateTimeKind.Utc).AddTicks(9155),
                             IsDeleted = false,
-                            Name = "Səhiyyə, turizm & Geyim"
+                            Name = "turizm, oyunlar & oyunlar"
                         },
                         new
                         {
                             Id = 9,
-                            CreateDate = new DateTime(2024, 1, 12, 20, 36, 48, 848, DateTimeKind.Utc).AddTicks(9416),
+                            CreateDate = new DateTime(2024, 1, 12, 20, 11, 23, 650, DateTimeKind.Utc).AddTicks(9179),
                             IsDeleted = false,
-                            Name = "садинструмент, gözəllik & turizm"
+                            Name = "Avtomobil, oyunlar & bəzək"
                         },
                         new
                         {
                             Id = 10,
-                            CreateDate = new DateTime(2024, 1, 12, 20, 36, 48, 848, DateTimeKind.Utc).AddTicks(9437),
+                            CreateDate = new DateTime(2024, 1, 12, 20, 11, 23, 650, DateTimeKind.Utc).AddTicks(9204),
                             IsDeleted = true,
-                            Name = "uşaq üçün & Avtomobil"
+                            Name = "садинструмент, uşaq üçün & bəzək"
                         });
                 });
 
@@ -151,7 +169,7 @@ namespace E_Commerce_Api.Persistance.Migrations
                         new
                         {
                             Id = 1,
-                            CreateDate = new DateTime(2024, 1, 12, 20, 36, 48, 849, DateTimeKind.Utc).AddTicks(3756),
+                            CreateDate = new DateTime(2024, 1, 12, 20, 11, 23, 651, DateTimeKind.Utc).AddTicks(4123),
                             IsDeleted = false,
                             Name = "Electric",
                             ParentId = 0,
@@ -160,7 +178,7 @@ namespace E_Commerce_Api.Persistance.Migrations
                         new
                         {
                             Id = 2,
-                            CreateDate = new DateTime(2024, 1, 12, 20, 36, 48, 849, DateTimeKind.Utc).AddTicks(3758),
+                            CreateDate = new DateTime(2024, 1, 12, 20, 11, 23, 651, DateTimeKind.Utc).AddTicks(4126),
                             IsDeleted = false,
                             Name = "Moda",
                             ParentId = 0,
@@ -169,7 +187,7 @@ namespace E_Commerce_Api.Persistance.Migrations
                         new
                         {
                             Id = 3,
-                            CreateDate = new DateTime(2024, 1, 12, 20, 36, 48, 849, DateTimeKind.Utc).AddTicks(3761),
+                            CreateDate = new DateTime(2024, 1, 12, 20, 11, 23, 651, DateTimeKind.Utc).AddTicks(4128),
                             IsDeleted = false,
                             Name = "Computers",
                             ParentId = 1,
@@ -178,7 +196,7 @@ namespace E_Commerce_Api.Persistance.Migrations
                         new
                         {
                             Id = 4,
-                            CreateDate = new DateTime(2024, 1, 12, 20, 36, 48, 849, DateTimeKind.Utc).AddTicks(3763),
+                            CreateDate = new DateTime(2024, 1, 12, 20, 11, 23, 651, DateTimeKind.Utc).AddTicks(4130),
                             IsDeleted = false,
                             Name = "Women",
                             ParentId = 2,
@@ -222,28 +240,28 @@ namespace E_Commerce_Api.Persistance.Migrations
                         {
                             Id = 1,
                             CategoryId = 1,
-                            CreateDate = new DateTime(2024, 1, 12, 20, 36, 48, 853, DateTimeKind.Utc).AddTicks(7062),
-                            Description = "Temporibus accusantium culpa dicta libero.",
+                            CreateDate = new DateTime(2024, 1, 12, 20, 11, 23, 665, DateTimeKind.Utc).AddTicks(8953),
+                            Description = "Quod cupiditate suscipit eaque facilis.",
                             IsDeleted = false,
-                            Title = "Cum."
+                            Title = "Ad."
                         },
                         new
                         {
                             Id = 2,
                             CategoryId = 3,
-                            CreateDate = new DateTime(2024, 1, 12, 20, 36, 48, 853, DateTimeKind.Utc).AddTicks(7116),
-                            Description = "Aperiam consequatur sint eveniet libero.",
+                            CreateDate = new DateTime(2024, 1, 12, 20, 11, 23, 665, DateTimeKind.Utc).AddTicks(9007),
+                            Description = "Aliquid cumque molestiae voluptatem consectetur.",
                             IsDeleted = true,
-                            Title = "At."
+                            Title = "Nesciunt."
                         },
                         new
                         {
                             Id = 3,
                             CategoryId = 4,
-                            CreateDate = new DateTime(2024, 1, 12, 20, 36, 48, 853, DateTimeKind.Utc).AddTicks(7167),
-                            Description = "Molestiae similique aperiam aut et.",
+                            CreateDate = new DateTime(2024, 1, 12, 20, 11, 23, 665, DateTimeKind.Utc).AddTicks(9103),
+                            Description = "Voluptatibus omnis iusto odio nesciunt.",
                             IsDeleted = false,
-                            Title = "Qui."
+                            Title = "Excepturi."
                         });
                 });
 
@@ -277,6 +295,9 @@ namespace E_Commerce_Api.Persistance.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<string>("Test")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -292,48 +313,39 @@ namespace E_Commerce_Api.Persistance.Migrations
                         {
                             Id = 1,
                             BrandId = 1,
-                            CreateDate = new DateTime(2024, 1, 13, 0, 36, 48, 859, DateTimeKind.Local).AddTicks(6609),
-                            Description = "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
-                            Discount = 7.525327856442751m,
+                            CreateDate = new DateTime(2024, 1, 13, 0, 11, 23, 676, DateTimeKind.Local).AddTicks(1714),
+                            Description = "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
+                            Discount = 5.199227960465908m,
                             IsDeleted = false,
-                            Price = 603.73m,
-                            Title = "Möhtəşəm Polad Stol"
+                            Price = 203.72m,
+                            Title = "Əlverişli Qranit Stol"
                         },
                         new
                         {
                             Id = 2,
                             BrandId = 3,
-                            CreateDate = new DateTime(2024, 1, 13, 0, 36, 48, 859, DateTimeKind.Local).AddTicks(6858),
-                            Description = "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
-                            Discount = 1.02058807237729156m,
+                            CreateDate = new DateTime(2024, 1, 13, 0, 11, 23, 676, DateTimeKind.Local).AddTicks(1966),
+                            Description = "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
+                            Discount = 9.526297259187136m,
                             IsDeleted = false,
-                            Price = 271.63m,
-                            Title = "Ergonomik Rezin Kulon"
+                            Price = 66.06m,
+                            Title = "İnanılmaz Rezin Avtomobil"
                         });
                 });
 
-            modelBuilder.Entity("E_Commerce_Api.Domain.Entities.ProductCategory", b =>
+            modelBuilder.Entity("CategoryProduct", b =>
                 {
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
+                    b.HasOne("E_Commerce_Api.Domain.Entities.Category", null)
+                        .WithMany()
+                        .HasForeignKey("CategoriesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreateDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.HasKey("ProductId", "CategoryId");
-
-                    b.HasIndex("CategoryId");
-
-                    b.ToTable("ProductCategories");
+                    b.HasOne("E_Commerce_Api.Domain.Entities.Product", null)
+                        .WithMany()
+                        .HasForeignKey("ProductsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("E_Commerce_Api.Domain.Entities.Detail", b =>
@@ -358,35 +370,9 @@ namespace E_Commerce_Api.Persistance.Migrations
                     b.Navigation("Brand");
                 });
 
-            modelBuilder.Entity("E_Commerce_Api.Domain.Entities.ProductCategory", b =>
-                {
-                    b.HasOne("E_Commerce_Api.Domain.Entities.Category", "Category")
-                        .WithMany("ProductCategories")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("E_Commerce_Api.Domain.Entities.Product", "Product")
-                        .WithMany("ProductCategories")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Category");
-
-                    b.Navigation("Product");
-                });
-
             modelBuilder.Entity("E_Commerce_Api.Domain.Entities.Category", b =>
                 {
                     b.Navigation("Details");
-
-                    b.Navigation("ProductCategories");
-                });
-
-            modelBuilder.Entity("E_Commerce_Api.Domain.Entities.Product", b =>
-                {
-                    b.Navigation("ProductCategories");
                 });
 #pragma warning restore 612, 618
         }

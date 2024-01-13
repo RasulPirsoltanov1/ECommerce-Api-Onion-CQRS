@@ -1,5 +1,5 @@
 ﻿using E_Commerce_Api.Application.AutoMapperConfigs;
-using E_Commerce_Api.Application.Features.Products.Command.GetAllProducts;
+using E_Commerce_Api.Application.Features.Products.Queries.GetAllProducts;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;

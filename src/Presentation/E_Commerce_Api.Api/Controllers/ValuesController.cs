@@ -1,4 +1,4 @@
-﻿using E_Commerce_Api.Application.Features.Products.Command.GetAllProducts;
+﻿using E_Commerce_Api.Application.Features.Products.Queries.GetAllProducts;
 using E_Commerce_Api.Application.Interfaces.UnitOfWorks;
 using E_Commerce_Api.Domain.Entities;
 using MediatR;
