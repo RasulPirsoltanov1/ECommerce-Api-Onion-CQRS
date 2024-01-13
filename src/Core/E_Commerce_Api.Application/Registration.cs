@@ -1,7 +1,9 @@
 ﻿using E_Commerce_Api.Application.AutoMapperConfigs;
+using E_Commerce_Api.Application.Bases;
 using E_Commerce_Api.Application.Exceptions;
 using E_Commerce_Api.Application.Features.Products.Command.CreateProduct;
 using E_Commerce_Api.Application.Features.Products.Queries.GetAllProducts;
+using E_Commerce_Api.Application.Features.Products.Rules;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -25,6 +27,17 @@ namespace E_Commerce_Api.Application
             services.AddValidatorsFromAssembly(typeof(CreateProductCommandValidator).Assembly);
             ValidatorOptions.Global.LanguageManager.Culture = new System.Globalization.CultureInfo("az");
             services.AddTransient<ExceptionMiddleware>();
+            services.AddRulesFromAssemblyContaining(Assembly.GetExecutingAssembly(), typeof(BaseRules));
+            return services;
+        }
+
+        public static IServiceCollection AddRulesFromAssemblyContaining(this IServiceCollection services, Assembly assembly, Type type)
+        {
+            var types = assembly.GetTypes().Where(x => x.IsSubclassOf(type) && x != type).ToList();
+            foreach (var typ in types)
+            {
+                services.AddTransient(typ);
+            }
             return services;
         }
     }
