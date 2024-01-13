@@ -26,7 +26,7 @@ namespace E_Commerce_Api.Application.Features.Products.Queries.GetAllProducts
             {
                 res.Price -= res.Price * res.Discount / 100;
             }
-            throw new ValidationException("global error");
+            //throw new ValidationException("global error"); //for test global exception handler.
             return response;
         }
     }

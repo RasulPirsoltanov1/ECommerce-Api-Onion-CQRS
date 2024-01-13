@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using E_Commerce_Api.Application.Features.Products.Command.CreateProduct;
+using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
