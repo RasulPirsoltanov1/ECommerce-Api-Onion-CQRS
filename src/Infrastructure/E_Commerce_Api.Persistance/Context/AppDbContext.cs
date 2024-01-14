@@ -1,5 +1,6 @@
 ﻿using E_Commerce_Api.Domain.Entities;
 using E_Commerce_Api.Persistance.Configurations;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -10,13 +11,13 @@ using System.Threading.Tasks;
 
 namespace E_Commerce_Api.Persistance.Context
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext<AppUser, AppRole, Guid>
     {
         public AppDbContext()
         {
 
         }
-        public AppDbContext(DbContextOptions dbContextOptions):base(dbContextOptions) 
+        public AppDbContext(DbContextOptions<AppDbContext> dbContextOptions) : base(dbContextOptions)
         {
         }
         public DbSet<Brand> Brands { get; set; }
