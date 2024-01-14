@@ -1,6 +1,7 @@
 using E_Commerce_Api.Application;
 using E_Commerce_Api.Application.Exceptions;
 using E_Commerce_Api.Application.Features.Products.Queries.GetAllProducts;
+using E_Commerce_Api.Infrastructure;
 using E_Commerce_Api.Persistance;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,6 +19,7 @@ builder.Configuration.SetBasePath(env.ContentRootPath).AddJsonFile("appsettings.
 
 builder.Services.AddPersistence(builder.Configuration);
 builder.Services.AddApplication();
+builder.Services.AddInfrastructure(builder.Configuration);
 
 var app = builder.Build();
 
