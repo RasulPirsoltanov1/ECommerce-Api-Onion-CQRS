@@ -19,7 +19,6 @@ builder.Configuration.SetBasePath(env.ContentRootPath).AddJsonFile("appsettings.
 builder.Services.AddPersistence(builder.Configuration);
 builder.Services.AddApplication();
 
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -36,6 +35,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
 
 
 app.Run();
