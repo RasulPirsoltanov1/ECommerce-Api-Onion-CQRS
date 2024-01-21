@@ -7,7 +7,5 @@
         public string Secret { get; set; }
         public int TokenValidityInMinutes { get; set; }
         public int TokenValidityInDays { get; set; }
-
     }
-
 }
