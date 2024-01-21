@@ -1,7 +1,10 @@
-﻿using E_Commerce_Api.Application.Features.Products.Rules;
+﻿using AutoMapper;
+using E_Commerce_Api.Application.Bases;
+using E_Commerce_Api.Application.Features.Products.Rules;
 using E_Commerce_Api.Application.Interfaces.UnitOfWorks;
 using E_Commerce_Api.Domain.Entities;
 using MediatR;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,15 +13,13 @@ using System.Threading.Tasks;
 
 namespace E_Commerce_Api.Application.Features.Products.Command.CreateProduct
 {
-    public class CreateProductCommandHandler : IRequestHandler<CreateProductCommandRequest, CreateProductCommandResponse>
+    public class CreateProductCommandHandler : BaseHandler,IRequestHandler<CreateProductCommandRequest, CreateProductCommandResponse>
     {
         IUnitOfWork _unitOfWork;
         ProductRules _productRules;
 
-        public CreateProductCommandHandler(IUnitOfWork unitOfWork, ProductRules productRules)
+        public CreateProductCommandHandler(IMapper mapper, IUnitOfWork unitOfWork, IHttpContextAccessor httpContextAccessor) : base(mapper, unitOfWork, httpContextAccessor)
         {
-            _unitOfWork = unitOfWork;
-            _productRules = productRules;
         }
 
         public async Task<CreateProductCommandResponse> Handle(CreateProductCommandRequest request, CancellationToken cancellationToken)
