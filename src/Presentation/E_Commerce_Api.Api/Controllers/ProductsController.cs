@@ -4,6 +4,7 @@ using E_Commerce_Api.Application.Features.Products.Command.UpdateProduct;
 using E_Commerce_Api.Application.Features.Products.Queries.GetAllProducts;
 using E_Commerce_Api.Application.Interfaces.UnitOfWorks;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
@@ -21,6 +22,7 @@ namespace E_Commerce_Api.Api.Controllers
             this._mediator = mediator;
         }
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> GetAllProducts()
         {
             var datas = await _mediator.Send(new GetAllProductsQueryRequest());

@@ -14,6 +14,7 @@ builder.Services.AddControllers();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Logging.SetMinimumLevel(LogLevel.Warning);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c => {
     c.SwaggerDoc("v1", new OpenApiInfo
@@ -36,11 +37,10 @@ builder.Services.AddSwaggerGen(c => {
         Reference = new OpenApiReference {
             Type = ReferenceType.SecurityScheme,
               Id = "Bearer"
-          },
+        },
           Scheme = "oauth2",
           Name = "Bearer",
           In = ParameterLocation.Header,
-
       },
       new List < string > ()
     }

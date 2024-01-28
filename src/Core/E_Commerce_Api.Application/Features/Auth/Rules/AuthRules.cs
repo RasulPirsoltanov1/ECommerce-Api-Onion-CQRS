@@ -17,5 +17,11 @@ namespace E_Commerce_Api.Application.Features.Auth.Rules
                 throw new UserAlreadyExistsException();
             return Task.CompletedTask;
         }
+        public Task EmailOrPasswordShouldNotBeInvalid(AppUser appUser,bool checkPassword)
+        {
+            if(appUser is null ||  !checkPassword) throw new EmailOrPasswordShouldNotBeInvalidException();
+
+            return Task.CompletedTask;
+        }
     }
 }

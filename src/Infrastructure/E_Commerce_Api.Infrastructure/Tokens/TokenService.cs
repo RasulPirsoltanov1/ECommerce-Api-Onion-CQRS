@@ -37,7 +37,7 @@ namespace E_Commerce_Api.Infrastructure.Tokens
             return Convert.ToBase64String(randomNumber);
         }
 
-        public async Task<System.IdentityModel.Tokens.Jwt.JwtSecurityToken> JwtSecurityToken(E_Commerce_Api.Domain.Entities.AppUser user, IList<string> roles)
+        public async Task<System.IdentityModel.Tokens.Jwt.JwtSecurityToken> CareateToken(E_Commerce_Api.Domain.Entities.AppUser user, IList<string> roles)
         {
             var claims = new List<Claim>()
             {
