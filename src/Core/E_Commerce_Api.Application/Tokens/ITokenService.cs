@@ -6,7 +6,7 @@ namespace E_Commerce_Api.Application.Tokens
 {
     public interface ITokenService
     {
-        Task<JwtSecurityToken> JwtSecurityToken(AppUser user ,IList<string> roles);
+        Task<JwtSecurityToken> CareateToken(AppUser user ,IList<string> roles);
         string GenerateRefreshToken();
         ClaimsPrincipal GetPrincipalFromExpiredToken(string? token);
     }

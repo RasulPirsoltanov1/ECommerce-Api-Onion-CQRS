@@ -27,4 +27,8 @@
     <ProjectReference Include="..\E_Commerce_Api.Domain\E_Commerce_Api.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Auth\Command\RefreshToken\" />
+  </ItemGroup>
+
 </Project>
