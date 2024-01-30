@@ -23,5 +23,18 @@ namespace E_Commerce_Api.Application.Features.Auth.Rules
 
             return Task.CompletedTask;
         }
+        public Task RefreshTokenShouldNotBeExpired(DateTime? expireDate)
+        {
+            if (expireDate <= DateTime.UtcNow)
+            {
+                throw new RefreshTokenShouldNotBeExpiredException();
+            }
+            return Task.CompletedTask;
+        }
+        public Task EmailAddressShouldBeValid(AppUser? appUser)
+        {
+            if (appUser is null) throw new EmailAddressShouldBeValidException();
+            return Task.CompletedTask;
+        }
     }
 }
