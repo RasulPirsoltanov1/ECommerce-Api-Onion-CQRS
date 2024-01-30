@@ -1,4 +1,4 @@
-﻿using E_Commerce_Api.Application.Tokens;
+﻿using E_Commerce_Api.Application.Interfaces.Tokens;
 using E_Commerce_Api.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;

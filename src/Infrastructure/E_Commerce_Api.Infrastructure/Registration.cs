@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using E_Commerce_Api.Application.Tokens;
 using E_Commerce_Api.Infrastructure.Tokens;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using E_Commerce_Api.Application.Interfaces.Tokens;
 
 
 
