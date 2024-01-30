@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using E_Commerce_Api.Application.Bases;
 using E_Commerce_Api.Application.Features.Auth.Rules;
+using E_Commerce_Api.Application.Interfaces.Tokens;
 using E_Commerce_Api.Application.Interfaces.UnitOfWorks;
-using E_Commerce_Api.Application.Tokens;
 using E_Commerce_Api.Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Http;
